@@ -27,7 +27,7 @@ plt.show(block=True)
 
 all_data = pd.read_csv("Data_umbos.csv", index_col='Taxon', header =1)
 all_data.info()
-all_data.to_json("data_output.json")
+all_data.to_json("results/data_output.json")
 
 json_data = pd.read_json("data_output.json")
 json_data.info()
