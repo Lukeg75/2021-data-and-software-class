@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-def read_data():
+def read_data(filename):
     # Create an array (a multi-dimensional table) out of our data file, full of text
     all_data = np.genfromtxt("data/Data_umbos.csv", delimiter=',')
     print(all_data)
@@ -16,7 +16,7 @@ def read_data():
     print(umbo_data)
     return umbo_data
 
-umbo_data = read_data()
+umbo_data = read_data("data/Data_umbos.csv")
 
 #Processing Data adding a random column of made up umbos
 random_umbos = (umbo_data[:,1:None]- 0)*0 + 1000
