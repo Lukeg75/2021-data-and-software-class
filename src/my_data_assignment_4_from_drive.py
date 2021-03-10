@@ -6,13 +6,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Create an array (a multi-dimensional table) out of our data file, full of text
-all_data = np.genfromtxt("data/Data_umbos.csv", delimiter=',')
-print(all_data)
+def read_data():
+    # Create an array (a multi-dimensional table) out of our data file, full of text
+    all_data = np.genfromtxt("data/Data_umbos.csv", delimiter=',')
+    print(all_data)
 
-# Select the data range we are interested in, convert it into a new array, full of numbers
-umbo_data = np.array(all_data[2:,1:3], dtype=float)
-print(umbo_data)
+    # Select the data range we are interested in, convert it into a new array, full of numbers
+    umbo_data = np.array(all_data[2:,1:3], dtype=float)
+    print(umbo_data)
+    return umbo_data
+
+umbo_data = read_data()
 
 #Processing Data adding a random column of made up umbos
 random_umbos = (umbo_data[:,1:None]- 0)*0 + 1000
