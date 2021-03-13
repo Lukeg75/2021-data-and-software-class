@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+# Create a function to read the data 
 def read_data(filename):
     """This function reads data from a specified filename. The specified filename should point to .csv file. """
     # Create an array (a multi-dimensional table) out of our data file, full of text
