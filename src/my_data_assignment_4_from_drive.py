@@ -10,7 +10,7 @@ import pandas as pd
 def read_data(filename):
     """This function reads data from a specified filename. The specified filename should point to .csv file. """
     # Create an array (a multi-dimensional table) out of our data file, full of text
-    all_data = np.genfromtxt("data/Data_umbos.csv", delimiter=',')
+    all_data = np.genfromtxt(filename, delimiter=',')
     print(all_data)
 
     # Select the data range we are interested in, convert it into a new array, full of numbers
@@ -21,6 +21,8 @@ def read_data(filename):
 help (read_data)
 
 umbo_data = read_data("data/Data_umbos.csv")
+
+#1st function^
 
 #Processing Data adding a random column of made up umbos
 random_umbos = (umbo_data[:,1:None]- 0)*0 + 1000
