@@ -24,12 +24,19 @@ umbo_data = read_data("data/Data_umbos.csv")
 
 #1st function^
 
-#Processing Data adding a random column of made up umbos
-random_umbos = (umbo_data[:,1:None]- 0)*0 + 1000
+def processing_data(filename):
+    """This function processes the data by appending a random column made up of 1000 umbos for each species """
+    #Processing Data adding a random column of made up umbos
+    random_umbos = (filename[:,1:None]- 0)*0 + 1000
 
-processed_umbo_data = np.append(umbo_data, random_umbos,1)
+    processed_umbo_data = np.append(filename, random_umbos,1)
 
-print(processed_umbo_data)
+    print(processed_umbo_data)
+    return processed_umbo_data
+
+processed_umbo_data = processing_data(umbo_data)
+#2nd function^
+
 # Create a figure of the processed data (I took out the random umbos)
 umbo_figure = plt.figure
 umbo_plot = plt.bar (umbo_data[:,1],umbo_data[:,0])
