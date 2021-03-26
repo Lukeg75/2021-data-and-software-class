@@ -42,9 +42,15 @@ umbo_figure = plt.figure
 umbo_plot = plt.bar (umbo_data[:,1],umbo_data[:,0])
 plt.show(block=True)
 
-all_data = pd.read_csv("data/Data_umbos.csv", index_col='Taxon', header =1)
-all_data.info()
-all_data.to_json("results/data_output.json")
+
+def csv_to_json(filename):
+    """This function reads an umbo csv list into a json file that is stored in the results folder. Taxon must be the name for the index column with a header of =1 """
+    all_data = pd.read_csv(filename, index_col='Taxon', header =1)
+    all_data.info()
+    all_data.to_json("results/data_output.json")
+    return all_data
+
+#3rd function^
 
 json_data = pd.read_json("results/data_output.json")
 json_data.info()
