@@ -18,12 +18,10 @@ def read_data(filename):
     print(umbo_data)
     return umbo_data
 
-help (read_data)
-
 umbo_data = read_data("data/Data_umbos.csv")
 
-#1st function^
-
+#1st function I figured out^
+#Create a function to process the data
 def processing_data(filename):
     """This function processes the data by appending a random column made up of 1000 umbos for each species """
     #Processing Data adding a random column of made up umbos
@@ -35,26 +33,37 @@ def processing_data(filename):
     return processed_umbo_data
 
 processed_umbo_data = processing_data(umbo_data)
-#2nd function^
+#2nd function I figured out^
 
 # Create a figure of the processed data (I took out the random umbos)
-umbo_figure = plt.figure
-umbo_plot = plt.bar (umbo_data[:,1],umbo_data[:,0])
+# Create a function to plot the processed data
+def create_plot(filename):
+    "This function creates a plot of specified umbo data as bar graph. It must use a csv file that contains umbo counts. The csv file should be arranged so that the specified rows and columns are plotted"
+    umbo_plot = plt.bar (umbo_data[:,1],umbo_data[:,0])
+    plt.show(block=True)
+    return umbo_plot
+
+create_plot = plt.bar(umbo_data[:,1],umbo_data[:,0])
 plt.show(block=True)
 
+#4th function I figured out^
 
+#Create a function to convert csv_to_json
 def csv_to_json(filename):
     """This function reads an umbo csv list into a json file that is stored in the results folder. Taxon must be the name for the index column with a header of =1 """
     all_data = pd.read_csv(filename, index_col='Taxon', header =1)
     all_data.info()
     all_data.to_json("results/data_output.json")
     return all_data
-
-#3rd function^
-
+    
 json_data = pd.read_json("results/data_output.json")
+#3rd function I figured out^
+
 json_data.info()
 print(json_data)
+
+#no function for printing json_data, just a sanity check
+
 
 #all_data = pd.read_csv("110-tavg-12-12-1950-2020.csv", index_col='Date', header=4)
 #all_data.info()
