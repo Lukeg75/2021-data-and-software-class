@@ -5,6 +5,25 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
+
+data_directory = os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "data"))
+print(data_directory)
+
+results_directory = os.path.realpath(os.path.join(os.path.dirname(__file__),"..", "results"))
+print(results_directory)
+
+input_file= "data_umbos.csv" 
+print(input_file)
+
+output_file = "data_output.json"
+print (output_file)
+
+input_filename = os.path.join(data_directory, input_file)
+print(input_filename)
+
+output_filename = os.path.join(results_directory, output_file)
+print(output_filename)
 
 # Create a function to read the data 
 def read_data(filename):
@@ -18,7 +37,7 @@ def read_data(filename):
     print(umbo_data)
     return umbo_data
 
-umbo_data = read_data("data/Data_umbos.csv")
+umbo_data = read_data(input_filename)
 
 #1st function I figured out^
 #Create a function to process the data
@@ -37,6 +56,7 @@ processed_umbo_data = processing_data(umbo_data)
 
 # Create a figure of the processed data (I took out the random umbos)
 # Create a function to plot the processed data
+
 def create_plot(filename):
     "This function creates a plot of specified umbo data as bar graph. It must use a csv file that contains umbo counts. The csv file should be arranged so that the specified rows and columns are plotted"
     umbo_plot = plt.bar (umbo_data[:,1],umbo_data[:,0])
@@ -44,6 +64,7 @@ def create_plot(filename):
     return umbo_plot
 
 create_plot = plt.bar(umbo_data[:,1],umbo_data[:,0])
+umbo_plot =create_plot
 plt.show(block=True)
 
 #4th function I figured out^
@@ -53,15 +74,14 @@ def csv_to_json(filename):
     """This function reads an umbo csv list into a json file that is stored in the results folder. Taxon must be the name for the index column with a header of =1 """
     all_data = pd.read_csv(filename, index_col='Taxon', header =1)
     all_data.info()
-    all_data.to_json("results/data_output.json")
+    all_data.to_json(output_filename)
     return all_data
     
-json_data = pd.read_json("results/data_output.json")
+json_data = pd.read_json(output_filename)
 #3rd function I figured out^
 
 json_data.info()
 print(json_data)
-
 #no function for printing json_data, just a sanity check
 
 
@@ -71,4 +91,4 @@ print(json_data)
 
 #json_data = pd.read_json("data_output.json")
 #json_data.info()
-#print(json_data.loc['195012':'197512','Value'])
+#print(json_data.loc['195012':'197512','Value']
