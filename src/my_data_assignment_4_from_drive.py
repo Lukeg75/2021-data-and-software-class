@@ -2,10 +2,11 @@
 
 # Import the libraries we are using. It is good practice to import all necessary
 # libraries in the first lines of a file.
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import os
+
 
 data_directory = os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "data"))
 print(data_directory)
