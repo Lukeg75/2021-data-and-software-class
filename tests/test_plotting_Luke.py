@@ -27,7 +27,7 @@ def test_read_data():
 
     assert (umbo_data[0,0] == 262)
 
-#1st test on read_data fucntion^
+#1st test on read_data function^
 
 def test_processing_data():
     input_file = "data_umbos.csv"
@@ -57,6 +57,8 @@ def test_csv_to_json():
 
     assert (True)
 
+#Had trouble figuring out a test for the csv_to_json function
+
 def test_create_plot():
     input_file = "data_umbos.csv"
     data_directory = os.path.realpath(os.path.join(os.path.dirname(__file__),"..","data"))
@@ -77,6 +79,6 @@ def test_create_plot():
 
         assert os.open('umbo_plot.pdf',os.O_RDONLY)
         
-        
+    #3rd test for create_plot function. I think this one worked correctly but it is hard to tell.
 
     
